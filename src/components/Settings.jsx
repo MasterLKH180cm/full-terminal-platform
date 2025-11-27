@@ -69,19 +69,19 @@ export default function Settings({ onClose }) {
       <div style={{
         background: 'var(--bg-primary, #1e1e1e)',
         border: '2px solid var(--border-color, #4a9eff)',
-        borderRadius: '12px',
-        padding: '24px',
-        minWidth: '400px',
+        borderRadius: '8px',
+        padding: '16px',
+        minWidth: '350px',
         maxWidth: '600px',
         maxHeight: '80vh',
         overflow: 'auto'
       }}>
-        <h2 style={{ color: 'var(--text-primary, #ffffff)', marginBottom: '20px' }}>
+        <h2 style={{ color: 'var(--text-primary, #ffffff)', marginBottom: '12px', fontSize: '18px' }}>
           Settings
         </h2>
 
-        <div style={{ marginBottom: '16px' }}>
-          <label style={{ color: 'var(--text-primary, #ffffff)', display: 'block', marginBottom: '8px' }}>
+        <div style={{ marginBottom: '12px' }}>
+          <label style={{ color: 'var(--text-primary, #ffffff)', display: 'block', marginBottom: '4px', fontSize: '13px' }}>
             Theme
           </label>
           <select 
@@ -102,8 +102,8 @@ export default function Settings({ onClose }) {
           </select>
         </div>
 
-        <div style={{ marginBottom: '16px' }}>
-          <label style={{ color: 'var(--text-primary, #ffffff)', display: 'block', marginBottom: '8px' }}>
+        <div style={{ marginBottom: '12px' }}>
+          <label style={{ color: 'var(--text-primary, #ffffff)', display: 'block', marginBottom: '4px', fontSize: '13px' }}>
             Border Color
           </label>
           <input 
@@ -112,7 +112,7 @@ export default function Settings({ onClose }) {
             onChange={(e) => handleChange('primaryColor', e.target.value)}
             style={{
               width: '100%',
-              height: '40px',
+              height: '32px',
               borderRadius: '4px',
               border: '1px solid var(--border-color, #4a9eff)',
               cursor: 'pointer'
@@ -120,8 +120,8 @@ export default function Settings({ onClose }) {
           />
         </div>
 
-        <div style={{ marginBottom: '16px' }}>
-          <label style={{ color: 'var(--text-primary, #ffffff)', display: 'block', marginBottom: '8px' }}>
+        <div style={{ marginBottom: '12px' }}>
+          <label style={{ color: 'var(--text-primary, #ffffff)', display: 'block', marginBottom: '4px', fontSize: '13px' }}>
             Layout
           </label>
           <select 
@@ -142,8 +142,8 @@ export default function Settings({ onClose }) {
           </select>
         </div>
 
-        <div style={{ marginBottom: '16px' }}>
-          <label style={{ color: 'var(--text-primary, #ffffff)', display: 'block', marginBottom: '8px' }}>
+        <div style={{ marginBottom: '12px' }}>
+          <label style={{ color: 'var(--text-primary, #ffffff)', display: 'block', marginBottom: '4px', fontSize: '13px' }}>
             Default Shell
           </label>
           <select 
@@ -166,8 +166,8 @@ export default function Settings({ onClose }) {
           </select>
         </div>
 
-        <div style={{ marginBottom: '24px' }}>
-          <label style={{ color: 'var(--text-primary, #ffffff)', display: 'block', marginBottom: '8px' }}>
+        <div style={{ marginBottom: '16px' }}>
+          <label style={{ color: 'var(--text-primary, #ffffff)', display: 'block', marginBottom: '4px', fontSize: '13px' }}>
             Font Size: {settings.fontSize}px
           </label>
           <input 
@@ -184,13 +184,13 @@ export default function Settings({ onClose }) {
           onClick={onClose}
           style={{
             width: '100%',
-            padding: '10px',
+            padding: '8px',
             borderRadius: '6px',
             border: 'none',
             background: 'var(--border-color, #4a9eff)',
             color: '#ffffff',
             cursor: 'pointer',
-            fontSize: '16px',
+            fontSize: '14px',
             fontWeight: 'bold'
           }}
         >

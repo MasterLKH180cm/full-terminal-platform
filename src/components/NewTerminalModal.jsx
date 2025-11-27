@@ -50,36 +50,37 @@ export default function NewTerminalModal({ onClose, onConfirm }) {
       <div style={{
         background: 'var(--bg-primary, #1e1e1e)',
         border: '2px solid var(--border-color, #4a9eff)',
-        borderRadius: '12px',
-        padding: '24px',
-        minWidth: '400px',
+        borderRadius: '8px',
+        padding: '16px',
+        minWidth: '350px',
         maxWidth: '500px'
       }}>
         <h2 style={{ 
           color: 'var(--text-primary, #ffffff)', 
-          marginBottom: '20px',
-          fontSize: '24px'
+          marginBottom: '12px',
+          fontSize: '18px'
         }}>
           New Terminal
         </h2>
 
         <p style={{ 
           color: 'var(--text-primary, #ffffff)', 
-          marginBottom: '16px',
-          opacity: 0.8
+          marginBottom: '12px',
+          opacity: 0.8,
+          fontSize: '13px'
         }}>
           Choose a shell type for the new terminal:
         </p>
 
-        <div style={{ marginBottom: '24px' }}>
+        <div style={{ marginBottom: '16px' }}>
           {availableShells.map((shell) => (
             <div
               key={shell.shell_type}
               onClick={() => setSelectedShell(shell.shell_type)}
               style={{
-                padding: '12px 16px',
-                marginBottom: '8px',
-                borderRadius: '8px',
+                padding: '8px 12px',
+                marginBottom: '6px',
+                borderRadius: '6px',
                 border: selectedShell === shell.shell_type 
                   ? '2px solid var(--border-color, #4a9eff)' 
                   : '2px solid transparent',
@@ -90,7 +91,7 @@ export default function NewTerminalModal({ onClose, onConfirm }) {
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '12px',
+                gap: '10px',
                 transition: 'all 0.2s',
                 transform: selectedShell === shell.shell_type ? 'scale(1.02)' : 'scale(1)'
               }}
@@ -105,19 +106,19 @@ export default function NewTerminalModal({ onClose, onConfirm }) {
                 }
               }}
             >
-              <span style={{ fontSize: '24px' }}>
+              <span style={{ fontSize: '20px' }}>
                 {getShellIcon(shell.shell_type)}
               </span>
               <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 'bold', fontSize: '16px' }}>
+                <div style={{ fontWeight: 'bold', fontSize: '14px' }}>
                   {shell.name}
                 </div>
-                <div style={{ fontSize: '12px', opacity: 0.7 }}>
+                <div style={{ fontSize: '11px', opacity: 0.7 }}>
                   {shell.path}
                 </div>
               </div>
               {selectedShell === shell.shell_type && (
-                <span style={{ color: 'var(--border-color, #4a9eff)', fontSize: '20px' }}>
+                <span style={{ color: 'var(--border-color, #4a9eff)', fontSize: '18px' }}>
                   ✓
                 </span>
               )}
@@ -125,18 +126,18 @@ export default function NewTerminalModal({ onClose, onConfirm }) {
           ))}
         </div>
 
-        <div style={{ display: 'flex', gap: '12px' }}>
+        <div style={{ display: 'flex', gap: '8px' }}>
           <button 
             onClick={onClose}
             style={{
               flex: 1,
-              padding: '10px',
+              padding: '8px',
               borderRadius: '6px',
               border: '1px solid var(--border-color, #4a9eff)',
               background: 'transparent',
               color: 'var(--text-primary, #ffffff)',
               cursor: 'pointer',
-              fontSize: '16px',
+              fontSize: '14px',
               fontWeight: 'bold'
             }}
           >
@@ -147,13 +148,13 @@ export default function NewTerminalModal({ onClose, onConfirm }) {
             disabled={!selectedShell}
             style={{
               flex: 1,
-              padding: '10px',
+              padding: '8px',
               borderRadius: '6px',
               border: 'none',
               background: selectedShell ? 'var(--border-color, #4a9eff)' : '#555',
               color: '#ffffff',
               cursor: selectedShell ? 'pointer' : 'not-allowed',
-              fontSize: '16px',
+              fontSize: '14px',
               fontWeight: 'bold'
             }}
           >

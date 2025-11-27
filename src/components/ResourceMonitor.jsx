@@ -1,40 +1,7 @@
-import { useState, useEffect, useRef, memo } from 'react';
+import { memo } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { invoke } from '@tauri-apps/api/core';
 
-const ResourceMonitor = memo(function ResourceMonitor() {
-  const [data, setData] = useState([]);
-  const maxPoints = 60;
-  const dataRef = useRef([]);
-
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      try {
-        const sysInfo = await invoke('get_system_info');
-        
-        const timestamp = new Date().toLocaleTimeString('en-US', { 
-          hour12: false,
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit'
-        });
-        
-        const newPoint = {
-          time: timestamp,
-          cpu: parseFloat(sysInfo.cpu.toFixed(1)),
-          memory: parseFloat(sysInfo.memory.toFixed(1))
-        };
-
-        dataRef.current = [...dataRef.current, newPoint].slice(-maxPoints);
-        setData(dataRef.current);
-      } catch (error) {
-        console.error('Failed to fetch resource data:', error);
-      }
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
+const ResourceMonitor = memo(function ResourceMonitor({ data = [] }) {
   return (
     <div style={{
       background: 'var(--bg-primary, #1e1e1e)',

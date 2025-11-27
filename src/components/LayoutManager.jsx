@@ -82,33 +82,33 @@ export default function LayoutManager({ currentBlocks, onLoadLayout, onClose }) 
       <div style={{
         background: 'var(--bg-primary, #1e1e1e)',
         border: '2px solid var(--border-color, #4a9eff)',
-        borderRadius: '12px',
-        padding: '24px',
-        minWidth: '500px',
+        borderRadius: '8px',
+        padding: '16px',
+        minWidth: '100px',
         maxWidth: '700px',
         maxHeight: '80vh',
         overflow: 'auto'
       }}>
-        <h2 style={{ color: 'var(--text-primary, #ffffff)', marginBottom: '20px' }}>
+        <h2 style={{ color: 'var(--text-primary, #ffffff)', marginBottom: '12px', fontSize: '18px' }}>
           Layout Manager
         </h2>
 
         {/* Current Layout Actions */}
-        <div style={{ marginBottom: '24px' }}>
-          <h3 style={{ color: 'var(--text-primary, #ffffff)', fontSize: '16px', marginBottom: '12px' }}>
+        <div style={{ marginBottom: '16px' }}>
+          <h3 style={{ color: 'var(--text-primary, #ffffff)', fontSize: '14px', marginBottom: '8px' }}>
             Current Layout
           </h3>
-          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
             <button
               onClick={() => setShowSaveDialog(true)}
               style={{
-                padding: '8px 16px',
+                padding: '6px 12px',
                 borderRadius: '6px',
                 border: '1px solid var(--border-color, #4a9eff)',
                 background: 'var(--border-color, #4a9eff)',
                 color: '#ffffff',
                 cursor: 'pointer',
-                fontSize: '14px'
+                fontSize: '13px'
               }}
             >
               💾 Save Layout
@@ -116,13 +116,13 @@ export default function LayoutManager({ currentBlocks, onLoadLayout, onClose }) 
             <button
               onClick={handleSaveAsDefault}
               style={{
-                padding: '8px 16px',
+                padding: '6px 12px',
                 borderRadius: '6px',
                 border: '1px solid var(--border-color, #4a9eff)',
                 background: 'var(--bg-secondary, #2d2d2d)',
                 color: 'var(--text-primary, #ffffff)',
                 cursor: 'pointer',
-                fontSize: '14px'
+                fontSize: '13px'
               }}
             >
               ⭐ Save as Default
@@ -130,13 +130,13 @@ export default function LayoutManager({ currentBlocks, onLoadLayout, onClose }) 
             <button
               onClick={() => fileInputRef.current?.click()}
               style={{
-                padding: '8px 16px',
+                padding: '6px 12px',
                 borderRadius: '6px',
                 border: '1px solid var(--border-color, #4a9eff)',
                 background: 'var(--bg-secondary, #2d2d2d)',
                 color: 'var(--text-primary, #ffffff)',
                 cursor: 'pointer',
-                fontSize: '14px'
+                fontSize: '13px'
               }}
             >
               📥 Import Layout
@@ -154,13 +154,13 @@ export default function LayoutManager({ currentBlocks, onLoadLayout, onClose }) 
         {/* Save Dialog */}
         {showSaveDialog && (
           <div style={{
-            marginBottom: '24px',
-            padding: '16px',
+            marginBottom: '16px',
+            padding: '12px',
             background: 'var(--bg-secondary, #2d2d2d)',
-            borderRadius: '8px',
+            borderRadius: '6px',
             border: '1px solid var(--border-color, #4a9eff)'
           }}>
-            <label style={{ color: 'var(--text-primary, #ffffff)', display: 'block', marginBottom: '8px' }}>
+            <label style={{ color: 'var(--text-primary, #ffffff)', display: 'block', marginBottom: '6px', fontSize: '13px' }}>
               Layout Name:
             </label>
             <input
@@ -170,27 +170,28 @@ export default function LayoutManager({ currentBlocks, onLoadLayout, onClose }) 
               placeholder="Enter layout name..."
               style={{
                 width: '100%',
-                padding: '8px',
+                padding: '6px 8px',
                 borderRadius: '4px',
                 border: '1px solid var(--border-color, #4a9eff)',
                 background: 'var(--bg-primary, #1e1e1e)',
                 color: 'var(--text-primary, #ffffff)',
-                marginBottom: '12px'
+                marginBottom: '8px',
+                fontSize: '13px'
               }}
               onKeyPress={(e) => e.key === 'Enter' && handleSave()}
             />
-            <div style={{ display: 'flex', gap: '8px' }}>
+            <div style={{ display: 'flex', gap: '6px' }}>
               <button
                 onClick={handleSave}
                 style={{
                   flex: 1,
-                  padding: '8px',
-                  borderRadius: '6px',
+                  padding: '6px',
+                  borderRadius: '4px',
                   border: 'none',
                   background: 'var(--border-color, #4a9eff)',
                   color: '#ffffff',
                   cursor: 'pointer',
-                  fontSize: '14px'
+                  fontSize: '13px'
                 }}
               >
                 Save
@@ -199,13 +200,13 @@ export default function LayoutManager({ currentBlocks, onLoadLayout, onClose }) 
                 onClick={() => { setShowSaveDialog(false); setLayoutName(''); }}
                 style={{
                   flex: 1,
-                  padding: '8px',
-                  borderRadius: '6px',
+                  padding: '6px',
+                  borderRadius: '4px',
                   border: '1px solid #888',
                   background: 'transparent',
                   color: 'var(--text-primary, #ffffff)',
                   cursor: 'pointer',
-                  fontSize: '14px'
+                  fontSize: '13px'
                 }}
               >
                 Cancel
@@ -215,21 +216,21 @@ export default function LayoutManager({ currentBlocks, onLoadLayout, onClose }) 
         )}
 
         {/* Saved Layouts */}
-        <div style={{ marginBottom: '24px' }}>
-          <h3 style={{ color: 'var(--text-primary, #ffffff)', fontSize: '16px', marginBottom: '12px' }}>
+        <div style={{ marginBottom: '16px' }}>
+          <h3 style={{ color: 'var(--text-primary, #ffffff)', fontSize: '14px', marginBottom: '8px' }}>
             Saved Layouts ({Object.keys(layouts).length})
           </h3>
           {Object.keys(layouts).length === 0 ? (
             <p style={{ color: '#888', fontStyle: 'italic' }}>No saved layouts yet</p>
           ) : (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               {Object.entries(layouts).map(([name, layout]) => (
                 <div
                   key={name}
                   style={{
-                    padding: '12px',
+                    padding: '8px 10px',
                     background: 'var(--bg-secondary, #2d2d2d)',
-                    borderRadius: '8px',
+                    borderRadius: '6px',
                     border: '1px solid #444',
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -237,10 +238,10 @@ export default function LayoutManager({ currentBlocks, onLoadLayout, onClose }) 
                   }}
                 >
                   <div>
-                    <div style={{ color: 'var(--text-primary, #ffffff)', fontWeight: 'bold' }}>
+                    <div style={{ color: 'var(--text-primary, #ffffff)', fontWeight: 'bold', fontSize: '13px' }}>
                       {name}
                     </div>
-                    <div style={{ color: '#888', fontSize: '12px' }}>
+                    <div style={{ color: '#888', fontSize: '11px' }}>
                       {layout.blocks.length} blocks • {new Date(layout.timestamp).toLocaleString()}
                     </div>
                   </div>
@@ -248,13 +249,13 @@ export default function LayoutManager({ currentBlocks, onLoadLayout, onClose }) 
                     <button
                       onClick={() => handleLoad(name)}
                       style={{
-                        padding: '6px 12px',
+                        padding: '4px 10px',
                         borderRadius: '4px',
                         border: '1px solid var(--border-color, #4a9eff)',
                         background: 'var(--border-color, #4a9eff)',
                         color: '#ffffff',
                         cursor: 'pointer',
-                        fontSize: '12px'
+                        fontSize: '11px'
                       }}
                     >
                       Load
@@ -262,13 +263,13 @@ export default function LayoutManager({ currentBlocks, onLoadLayout, onClose }) 
                     <button
                       onClick={() => handleExport(name)}
                       style={{
-                        padding: '6px 12px',
+                        padding: '4px 10px',
                         borderRadius: '4px',
                         border: '1px solid #888',
                         background: 'transparent',
                         color: 'var(--text-primary, #ffffff)',
                         cursor: 'pointer',
-                        fontSize: '12px'
+                        fontSize: '11px'
                       }}
                     >
                       📤
@@ -276,13 +277,13 @@ export default function LayoutManager({ currentBlocks, onLoadLayout, onClose }) 
                     <button
                       onClick={() => handleDelete(name)}
                       style={{
-                        padding: '6px 12px',
+                        padding: '4px 10px',
                         borderRadius: '4px',
                         border: '1px solid #ff4444',
                         background: 'transparent',
                         color: '#ff4444',
                         cursor: 'pointer',
-                        fontSize: '12px'
+                        fontSize: '11px'
                       }}
                     >
                       🗑️
@@ -298,13 +299,13 @@ export default function LayoutManager({ currentBlocks, onLoadLayout, onClose }) 
           onClick={onClose}
           style={{
             width: '100%',
-            padding: '10px',
+            padding: '8px',
             borderRadius: '6px',
             border: 'none',
             background: 'var(--border-color, #4a9eff)',
             color: '#ffffff',
             cursor: 'pointer',
-            fontSize: '16px',
+            fontSize: '14px',
             fontWeight: 'bold'
           }}
         >
